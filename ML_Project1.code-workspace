@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"better-comments.multilineComments": true,
+		"better-comments.highlightPlainText": false
+	}
+}
