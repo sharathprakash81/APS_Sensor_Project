@@ -40,3 +40,8 @@
             origin  https://github.com/sharathprakash81/APS_Sensor_Project.git (fetch)
             origin  https://github.com/sharathprakash81/APS_Sensor_Project.git (push)
 
+## notebook for EDA, .gitignore and .env files
+
+
+##setup.py 
+    first file --> Source code as a library format!    (distribution of code)      
