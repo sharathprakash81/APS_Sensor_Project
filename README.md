@@ -59,3 +59,10 @@ This is required for all projects as standard procedure
 
 **Artifact** (model/document) is output generatored by the training pipeline
 **Configuration** is input for the training pipeline
+**Entity** is an light weight persistence domain object.(I/O structure)
+**utils** helper functions
+
+##Folder structure:
+
+![](notebook\project_prep_1.JPG)
+
