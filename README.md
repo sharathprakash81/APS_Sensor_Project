@@ -44,4 +44,18 @@
 
 
 ##setup.py 
-    first file --> Source code as a library format!    (distribution of code)      
+    first file --> Source code as a library format!    (distribution of code)
+    create requirements.txt file --> with "-e ." (HYPHEN_DOT_E)
+    running pip install -r requirements.txt
+             --> will install all the packages
+             --> installation will happen in sensor folder as it has (__init__.py file added manually)
+            --> will create a folder sensor.egg-info with all source packages
+This is required for all projects as standard procedure
+    
+
+## Training Pipeline with the following components
+
+![](notebook\Training_Pipeline.jpg)
+
+**Artifact** (model/document) is output generatored by the training pipeline
+**Configuration** is input for the training pipeline
