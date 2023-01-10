@@ -17,7 +17,7 @@ class DataValidation:
             raise SensorException(e, sys)
         
       
-    def drop_missing_values_columns(self,df:pd.DataFrame,threshold:float=0.3)-> Option[pd.DataFrame]:
+    def drop_missing_values_columns(self,df:pd.DataFrame, threshold)-> Optional[pd.DataFrame]:
         """
         This function drops column values containing missing values more than specified threshold
         
@@ -55,11 +55,19 @@ class DataValidation:
             
             if len(missing_columns)>0:
                 self.validation_error["Missing Columns"] = missing_columns
+                return False
+            return True
         
         except Exception as e:
-            
-        
+            raise e
     
+    def data_drift(self, base_df:pd.DataFrame, current_df:pd.DataFrame):
+        try:
+            pass
+        
+        except Exception as e:
+            raise SensorException(e,sys)        
+           
     
     def initiate_data_validation(self)->artifact_entity.DataValidationArtifact:
         pass
