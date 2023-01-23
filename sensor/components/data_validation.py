@@ -35,7 +35,7 @@ class DataValidation:
             self.validation_error["dropped_columns"]=drop_column_names
             df.drop(list(drop_column_names),axis=1,inplace=True)
             
-            #return None
+            #*return None
             if len(df.columns)==0:
                 return None
             return df
