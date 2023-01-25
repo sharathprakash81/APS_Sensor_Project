@@ -5,6 +5,9 @@ from datetime import datetime
 FILE_NAME = "sensor.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
+TRANSFORMER_OBJECT_FILE_NAME = "transforer.pkl"
+TARGET_ENCODER_OBJECT_FILE_NAME = "target_encoder.pkl"
+MODEL_FILE_NAME = "model.pkl"
 
 
 
@@ -45,7 +48,14 @@ class DataValidationConfig:
         self.base_file_path = os.path.join(r'C:\Users\shara\ML_Projects\DATA_Download\aps_failure_training_set1.csv')
         
         
-class DataTransformationConfig:...
+class DataTransformationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.data_transformation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_transformation")
+        self.transform_object_path = os.path.join(self.data_transformation_dir,"transformer",TRANSFORMER_OBJECT_FILE_NAME)
+        self.transformed_train_path = os.path.join(self.data_transformation_dir,"transformed",TRAIN_FILE_NAME)
+        self.transformed_test_path = os.path.join(self.data_transformation_dir,"transformed",TEST_FILE_NAME)
+        self.label_encoder_path = os.path.join(self.data_transformation_dir,"target_encoder",TARGET_ENCODER_OBJECT_FILE_NAME)
+    
 class ModelTrainerConfig:...
 class ModelEvaluationConfig:...
 class ModelPusherConfig:...
