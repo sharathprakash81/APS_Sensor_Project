@@ -20,10 +20,10 @@ class DataTransformation:
     def __init__(self,data_transformation_config:config_entity.DataTransformationConfig,
                  data_ingestion_artifact:artifact_entity.DataIngestionArtifact):
         try:
+            logging.info(f"{'>>'*20} Data Transformation {'<<'*20}") 
             self.data_transformation_config = data_transformation_config
             self.data_ingestion_artifact = data_ingestion_artifact
-            
-            
+                       
         except Exception as e:
             raise SensorException(e, sys)
      
@@ -80,7 +80,7 @@ class DataTransformation:
             
             #*target encoder
             train_arr = np.c_[input_feature_train_arr, target_feature_train_arr]
-            test_arr = np.c_[input_feature_test_arr, target_feature_test_df]
+            test_arr = np.c_[input_feature_test_arr, target_feature_test_arr]
             
             #*save numpy array
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_train_path, array=train_arr)
