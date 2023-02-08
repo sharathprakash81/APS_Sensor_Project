@@ -2,6 +2,7 @@ import pandas as pd
 from sensor.logger import logging
 from sensor.exception import SensorException
 from sensor.config import mongo_client
+import numpy as np
 import os,sys 
 import yaml
 import dill

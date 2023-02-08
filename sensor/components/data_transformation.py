@@ -1,7 +1,8 @@
 from sensor.entity import artifact_entity, config_entity
 from sensor.exception import SensorException
 from sensor.logger import logging
-from sklearn.preprocessing import Pipeline, LabelEncoder
+from sklearn.preprocessing import LabelEncoder
+from sklearn.pipeline import Pipeline
 import os, sys
 import pandas as pd
 from  typing import Optional
@@ -62,13 +63,13 @@ class DataTransformation:
             target_feature_test_arr = label_encoder.transform(target_feature_train_df)
             
             transformation_pipeline = DataTransformation.get_data_transformation_object()
-            transformation_pipeline.fir(input_feature_train_df)
+            transformation_pipeline.fit(input_feature_train_df)
             
             #*transforming input features
             input_feature_train_arr = transformation_pipeline.transform(input_feature_train_df)
             input_feature_test_arr = transformation_pipeline.transform(input_feature_test_df)
             
-            smt = SMOTETomek(sampling_strategy="minority")
+            smt = SMOTETomek(sampling_strategy="auto")
             logging.info(f"Before resampling in training set Input: {input_feature_train_arr.shape} Target: {target_feature_train_arr.shape}")
             input_feature_train_arr, target_feature_train_arr = smt.fit_resample(input_feature_train_arr, target_feature_train_arr)
             logging.info(f"After resampling in training set Input: {input_feature_train_arr.shape} Target: {target_feature_train_arr.shape}")
