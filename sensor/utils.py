@@ -45,7 +45,7 @@ def convert_columns_float(df:pd.DataFrame, exclude_columns:list)-> pd.DataFrame:
 def save_object(file_path: str, obj: object) -> None:
     try:
         logging.info("Entered the save_object method of utils")
-        os.makedirs(os.path.dirname(file_path)), exits_ok=True)
+        os.makedirs(os.path.dirname(file_path), exits_ok=True)
         with open(file_path, 'wb') as  file_obj:
             dill.dump(obj, file_obj)
         logging.info("Exited the save_object method of utils")
