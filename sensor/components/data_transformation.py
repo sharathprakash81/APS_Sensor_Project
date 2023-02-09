@@ -28,7 +28,7 @@ class DataTransformation:
             raise SensorException(e, sys)
      
     @classmethod    
-    def get_data_transformation_object(cls)->Pipeline:
+    def get_data_transformer_object(cls)->Pipeline:
         try:
             simple_imputer = SimpleImputer(strategy='constant',fill_value=0)
             robust_scaler = RobustScaler()
@@ -56,20 +56,20 @@ class DataTransformation:
             target_feature_test_df= test_df[TARGET_COLUMN]
             
             label_encoder = LabelEncoder()
-            label_encoder.fit(target_feature_test_df)
+            label_encoder.fit(target_feature_train_df)
             
             #*transformation on target columns
-            target_feature_train_arr = label_encoder.transform(target_feature_test_df)
-            target_feature_test_arr = label_encoder.transform(target_feature_train_df)
+            target_feature_train_arr = label_encoder.transform(target_feature_train_df)
+            target_feature_test_arr = label_encoder.transform(target_feature_test_df)
             
-            transformation_pipeline = DataTransformation.get_data_transformation_object()
+            transformation_pipeline = DataTransformation.get_data_transformer_object()
             transformation_pipeline.fit(input_feature_train_df)
             
             #*transforming input features
             input_feature_train_arr = transformation_pipeline.transform(input_feature_train_df)
             input_feature_test_arr = transformation_pipeline.transform(input_feature_test_df)
             
-            smt = SMOTETomek(sampling_strategy="auto")
+            smt = SMOTETomek(random_state=42)
             logging.info(f"Before resampling in training set Input: {input_feature_train_arr.shape} Target: {target_feature_train_arr.shape}")
             input_feature_train_arr, target_feature_train_arr = smt.fit_resample(input_feature_train_arr, target_feature_train_arr)
             logging.info(f"After resampling in training set Input: {input_feature_train_arr.shape} Target: {target_feature_train_arr.shape}")
@@ -94,8 +94,8 @@ class DataTransformation:
                     transform_object_path=self.data_transformation_config.transform_object_path,
                     transformed_train_path=self.data_transformation_config.transformed_train_path,
                     transformed_test_path=self.data_transformation_config.transformed_test_path,
-                    target_encode_path=self.data_transformation_config.target_encode_path
-            )
+                    target_encoder_path=self.data_transformation_config.target_encoder_path
+                    )
             
             logging.info(f"Data transformation object {data_transformation_artifact}")
             return data_transformation_artifact
