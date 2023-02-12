@@ -64,5 +64,8 @@ class ModelTrainerConfig:
         self.expected_score = 0.7
         self.overfitting_threshold = 0.1
         
-class ModelEvaluationConfig:...
+class ModelEvaluationConfig:
+    def __init__(self, training_pipeline_config:TrainingPipelineConfig):
+        self.change_threshold = 0.01
+        
 class ModelPusherConfig:...
