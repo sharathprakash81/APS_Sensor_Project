@@ -77,6 +77,13 @@ class ModelResolver:
         except Exception as e:
             raise e
         
+    def get_latest_save_model_path(self):
+        try:
+            latest_dir = self.get_latest_save_dir_path()
+            return os.path.join(latest_dir,self.model_dir_name,MODEL_FILE_NAME)
+        except Exception as e:
+            raise e
+        
     def get_latest_save_target_encoder_path(self):
         try:
             latest_dir = self.get_latest_save_dir_path()

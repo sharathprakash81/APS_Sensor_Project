@@ -1,9 +1,0 @@
-[2022-12-27 16:33:24,241] 159 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
-[2022-12-27 16:33:26,180] 23 root - INFO - Exporting collection data as pandas DataFrame
-[2022-12-27 16:33:26,180] 10 root - INFO - Reading data from database: 'APS and collection: 'sensor
-[2022-12-27 16:33:26,463] 12 root - INFO - Found columns: Index([], dtype='object')
-[2022-12-27 16:33:26,465] 16 root - INFO - Row and columns in df : (0, 0)
-[2022-12-27 16:33:26,465] 28 root - INFO - save data in feature store
-[2022-12-27 16:33:26,465] 34 root - INFO - Create feature store folder if not available
-[2022-12-27 16:33:26,468] 38 root - INFO - Save df to feature store folder
-[2022-12-27 16:33:26,475] 42 root - INFO - split dataset into train and test set
