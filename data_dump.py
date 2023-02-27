@@ -1,9 +1,7 @@
 import pymongo
 import pandas as pd
 import json
-
-#*Mongodb localhost url for established connection with python
-client = pymongo.MongoClient("mongodb+srv://sp27:be990396@cluster0.hinrq6i.mongodb.net/?retryWrites=true&w=majority")
+from sensor.config import mongo_client
 
 DATA_FILE_PATH = r"C:\Users\shara\ML_Projects\DATA_Download\aps_failure_training_set1.csv"
 DATABASE_NAME = "APS"
