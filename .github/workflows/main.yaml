@@ -18,7 +18,7 @@ jobs:
    - name: Checkout Code
      uses: actions/checkout@v3
    - name: Install Utilities
-     run: |
+     run: 
       sudo apt-get update
       sudo apt-get install -y jq unzip
 
@@ -39,7 +39,7 @@ jobs:
       ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
       IMAGE_TAG: latest
-     run: |
+     run: 
        # Build a docker container and
        # push it to ECR so that it can
        # be deployed to ECS#
@@ -61,7 +61,7 @@ jobs:
       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       aws-region: ${{ secrets.AWS_REGION }}
   - name: Install Utilities
-    run: |
+    run: 
       sudo apt-get update
       sudo apt-get install -y jq unzip
   - name: Login to Amazon ECR
@@ -69,13 +69,12 @@ jobs:
     uses: aws-actions/amazon-ecr-login@v1
     
   - name: Pull docker image
-    run: |
+    run: 
       docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
   - name: Run Docker Image to serve users
-    run: |
+    run: 
       export IMAGE_NAME="${{secrets.AWS_ECR_LOGIN_URI}}"/"${{ secrets.ECR_REPOSITORY_NAME }}":latest AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }} BUCKET_NAME=${{ secrets.BUCKET_NAME }} "MONGO_DB_URL=${{ secrets.MONGO_DB_URL }}" && docker compose up -d
-  - name: Docker System Prune to Remove Old Images
-    run: |
+    run: 
       docker system prune -f
-  #*comments
+ 
 
