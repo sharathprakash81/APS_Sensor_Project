@@ -40,7 +40,7 @@
             origin  https://github.com/sharathprakash81/APS_Sensor_Project.git (fetch)
             origin  https://github.com/sharathprakash81/APS_Sensor_Project.git (push)
 
-## notebook for EDA, .gitignore and .env files
+## #notebook for EDA, .gitignore and .env files
 
 
 ##setup.py 
