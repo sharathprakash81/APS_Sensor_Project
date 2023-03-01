@@ -1,7 +1,7 @@
 version: "2"
 services:
   application:
-    image: ${IMAGE_NAME}
+    image: 715308388243.dkr.ecr.eu-west-2.amazonaws.com/sensor-fault:latest
     container_name: sensor
     ports:
       - "8080:8080"
@@ -11,4 +11,6 @@ services:
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
       - MONGO_DB_URL=${MONGO_DB_URL}
       - BUCKET_NAME=${BUCKET_NAME}
+    
+
     
