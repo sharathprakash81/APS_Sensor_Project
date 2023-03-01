@@ -66,7 +66,7 @@ This is required for all projects as standard procedure
 
 ![](notebook\project_prep_1.JPG)
 
-#########
+#######
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -81,4 +81,4 @@ AWS_ECR_LOGIN_URI=
 ECR_REPOSITORY_NAME=
 BUCKET_NAME=
 MONGO_DB_URL=
-##Bucket_Name added
+#Bucket_Name added
