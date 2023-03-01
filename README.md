@@ -66,7 +66,7 @@ This is required for all projects as standard procedure
 
 ![](notebook\project_prep_1.JPG)
 
-########
+#########
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
