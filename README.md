@@ -81,4 +81,4 @@ AWS_ECR_LOGIN_URI=
 ECR_REPOSITORY_NAME=
 BUCKET_NAME=
 MONGO_DB_URL=
-##Bucket_Name added
+#Bucket_Name added
